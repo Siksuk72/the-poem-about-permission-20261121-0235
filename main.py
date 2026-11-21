@@ -21,6 +21,12 @@ POEM = (
 
 
 def main() -> None:
+    if not (1 <= len(POEM) <= 280):
+        raise ValueError(
+            f"poem must be 1-280 code points, got {len(POEM)}"
+        )
+    if not POEM.strip():
+        raise ValueError("poem must not be only whitespace")
     out_dir = "/output"
     os.makedirs(out_dir, exist_ok=True)
     path = os.path.join(out_dir, "entry.txt")
